@@ -1,1 +1,2 @@
-More coming soon!
+# Templated Solidity
+### Jinja + Solidity = A Mild Improvement
