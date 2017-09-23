@@ -1,2 +1,2 @@
 # Templated Solidity
-### Jinja + Solidity = A Mild Improvement
+### Jinja + Solidity = Smart Templates
