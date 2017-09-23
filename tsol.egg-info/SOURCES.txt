@@ -1,0 +1,7 @@
+setup.py
+tsol.egg-info/PKG-INFO
+tsol.egg-info/SOURCES.txt
+tsol.egg-info/dependency_links.txt
+tsol.egg-info/entry_points.txt
+tsol.egg-info/requires.txt
+tsol.egg-info/top_level.txt
