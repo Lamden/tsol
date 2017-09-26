@@ -11,15 +11,16 @@ Thus, Templated Solidity.
 So imagine this. You want dynamically produced data models for a database blockchain app using Ethereum. You can't create dynamic structs in Solidity. So instead, let's create templated smart contracts from a base contract.
 
 ```
-contract Table {
+pragma solidity ^0.4.14;
+    contract Table {
     address owner;
     function Table() {
         owner = msg.sender;
     }
     
     struct Model {
-        {% for key, value in struct.iteritems() %}
-            {{ key|e }} {{ value|e }};
+        {% for key, value in struct.items() %}
+            {{ value }} {{ key }};
         {% endfor %}
     }
     
@@ -30,25 +31,40 @@ contract Table {
         _;
     }
     
-    function get(uint id) returns (Model bb) {
+    function get(uint id) internal returns (Model bb) {
        return lookup[id];
     }
     
-    function set(Model b, uint id) onlyOwner returns (Model bb){
+    function set(Model b, uint id) onlyOwner internal returns (Model bb){
        lookup[id] = b;
        return lookup[id];
     }
+    {% for key, value in struct.items() %}
+    function get_{{ key }}(uint id) returns ({{ value }} a) {
+            Model m = lookup[id];
+            return m.{{ key }};
+        }
+    {% endfor %}
 }
 ```
 
 And you would just need to create some sort of dictionary object to go inside the struct like so:
 
 ```
-book = {
-	'title' : 'string',
-	'author' : 'string',
-	'owner' : 'address'
-	}
+example = {
+    'contract_name' : 'Book',
+    'struct' : {
+        'title' : 'string',
+        'author' : 'string',
+        'owner' : 'address'
+    }   
+}
+```
+
+Then, to compile it, all you have to do is call:
+
+```
+tsol.compile(template, example)
 ```
 
 Now you have a way to create infinite numbers of data models on a blockchain.
