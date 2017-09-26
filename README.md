@@ -45,9 +45,9 @@ And you would just need to create some sort of dictionary object to go inside th
 
 ```
 book = {
-	title : string,
-	author : string,
-	owner : address
+	'title' : 'string',
+	'author' : 'string',
+	'owner' : 'address'
 	}
 ```
 
