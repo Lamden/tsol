@@ -1,4 +1,7 @@
-# Templated Solidity
+# Templated Solidity (tsol, pronounced teasle)
+
+![a teasle](https://github.com/Lamden/tsol/blob/master/imgs/tsol.jpg)
+
 ### Jinja + Solidity = Smart Templates
 
 ```pip install tsol```
