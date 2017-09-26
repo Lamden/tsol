@@ -8,7 +8,7 @@ We templated Solidity code so that we can reuse and deploy common contracts with
 
 Thus, Templated Solidity.
 
-So imagine this. You want dynamically produced data models for a database blockchain app using Ethereum. You can't create dynamic structs in Solidity. So instead, let's create templated smart contracts from a base contract instead.
+So imagine this. You want dynamically produced data models for a database blockchain app using Ethereum. You can't create dynamic structs in Solidity. So instead, let's create templated smart contracts from a base contract.
 
 ```
 contract Table {
@@ -51,6 +51,6 @@ book = {
 	}
 ```
 
-Now you have a way to create infinate numbers of data models on a blockchain.
+Now you have a way to create infinite numbers of data models on a blockchain.
 
 Enjoy!
