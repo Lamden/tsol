@@ -39,6 +39,7 @@ contract Table {
        return lookup[id];
     }
 }
+
 ```
 
 And you would just need to create some sort of dictionary object to go inside the struct like so:
@@ -49,6 +50,7 @@ book = {
 	author : string,
 	owner : address
 	}
+
 ```
 
 Now you have a way to create infinate numbers of data models on a blockchain.
