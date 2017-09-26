@@ -10,7 +10,8 @@ Thus, Templated Solidity.
 
 So imagine this. You want dynamically produced data models for a database blockchain app using Ethereum. You can't create dynamic structs in Solidity. So instead, let's create templated smart contracts from a base contract instead.
 
-```contract Table {
+```
+contract Table {
     address owner;
     function Table() {
         owner = msg.sender;
@@ -37,15 +38,18 @@ So imagine this. You want dynamically produced data models for a database blockc
        lookup[id] = b;
        return lookup[id];
     }
-}```
+}
+```
 
 And you would just need to create some sort of dictionary object to go inside the struct like so:
 
-```book = {
+```
+book = {
 	title : string,
 	author : string,
 	owner : address
-	}```
+	}
+```
 
 Now you have a way to create infinate numbers of data models on a blockchain.
 
