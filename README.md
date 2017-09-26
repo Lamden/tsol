@@ -8,6 +8,45 @@ We templated Solidity code so that we can reuse and deploy common contracts with
 
 Thus, Templated Solidity.
 
-This library is a helper for commonly used functions in the Lamden suite and can be used in your own projects. It includes turning JSON and TSOL into pure Solidity and quick Solidity compilation tools for error checking.
+So imagine this. You want dynamically produced data models for a database blockchain app using Ethereum. You can't create dynamic structs in Solidity. So instead, let's create templated smart contracts from a base contract instead.
+
+```contract Table {
+    address owner;
+    function Table() {
+        owner = msg.sender;
+    }
+    
+    struct Model {
+        {% for key, value in struct.iteritems() %}
+            {{ key|e }} {{ value|e }};
+        {% endfor %}
+    }
+    
+    mapping (uint => Model) lookup;
+    
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
+    }
+    
+    function get(uint id) returns (Model bb) {
+       return lookup[id];
+    }
+    
+    function set(Model b, uint id) onlyOwner returns (Model bb){
+       lookup[id] = b;
+       return lookup[id];
+    }
+}```
+
+And you would just need to create some sort of dictionary object to go inside the struct like so:
+
+```book = {
+	title : string,
+	author : string,
+	owner : address
+	}```
+
+Now you have a way to create infinate numbers of data models on a blockchain.
 
 Enjoy!
