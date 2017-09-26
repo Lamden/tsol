@@ -5,6 +5,12 @@ setup(
     version='0.1',
     py_modules=['tsol'],
     include_package_data=True,
+    description = 'Templated Solidity for smart contracts.',
+    author = 'Lamden GmbH',
+    author_email = 'team@lamden.io',
+    url = 'https://github.com/lamden/tsol',
+    download_url = 'https://github.com/lamden/tsol/archive/0.1.tar.gz',
+    keywords = ['ethereum', 'solidity', 'cryptocurrency'],
     packages=find_packages(),
     install_requires=[
          'click',
@@ -17,3 +23,4 @@ setup(
         tsol=tsol:cli
     ''',
 )
+  

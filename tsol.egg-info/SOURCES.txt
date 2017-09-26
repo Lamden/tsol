@@ -1,4 +1,5 @@
 setup.py
+tsol.py
 tsol.egg-info/PKG-INFO
 tsol.egg-info/SOURCES.txt
 tsol.egg-info/dependency_links.txt

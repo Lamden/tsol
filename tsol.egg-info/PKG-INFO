@@ -1,10 +1,12 @@
-Metadata-Version: 1.0
+Metadata-Version: 1.1
 Name: tsol
 Version: 0.1
-Summary: UNKNOWN
-Home-page: UNKNOWN
-Author: UNKNOWN
-Author-email: UNKNOWN
+Summary: Templated Solidity for smart contracts.
+Home-page: https://github.com/lamden/tsol
+Author: Lamden GmbH
+Author-email: team@lamden.io
 License: UNKNOWN
+Download-URL: https://github.com/lamden/tsol/archive/0.1.tar.gz
 Description: UNKNOWN
+Keywords: ethereum,solidity,cryptocurrency
 Platform: UNKNOWN
