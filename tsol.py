@@ -19,9 +19,9 @@ BASE_JSON_PAYLOAD = '''{"language": "Solidity", "sources": {
 			}
 		}'''
 
-def does_compile(payload):
+def does_compile(template, example):
 	try:
-		compile_standard(json.loads(payload))
+		compile(template, example)
 	except:
 		return False
 	return True

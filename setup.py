@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='tsol',
-    version='0.1',
+    version='0.1.2',
     py_modules=['tsol'],
     include_package_data=True,
     description = 'Templated Solidity for smart contracts.',
