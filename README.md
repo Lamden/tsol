@@ -67,6 +67,56 @@ Then, to compile it, all you have to do is call:
 tsol.compile(template, example)
 ```
 
+This then yields the following contract in pure Solidity:
+
+```
+pragma solidity ^0.4.14;
+    contract Table {
+    address owner;
+    function Table() {
+        owner = msg.sender;
+    }
+    
+    struct Model {
+            string author;
+            string title;
+            address owner;
+    }
+    
+    mapping (uint => Model) lookup;
+    
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
+    }
+    
+    function get(uint id) internal returns (Model bb) {
+       return lookup[id];
+    }
+    
+    function set(Model b, uint id) onlyOwner internal returns (Model bb){
+       lookup[id] = b;
+       return lookup[id];
+    }
+    
+    function get_author(uint id) returns (string a) {
+            Model memory m = lookup[id];
+            return m.author;
+        }
+    
+    function get_title(uint id) returns (string a) {
+            Model memory m = lookup[id];
+            return m.title;
+        }
+    
+    function get_owner(uint id) returns (address a) {
+            Model memory m = lookup[id];
+            return m.owner;
+        }
+    
+}
+```
+
 Now you have a way to create infinite numbers of data models on a blockchain.
 
 Enjoy!
