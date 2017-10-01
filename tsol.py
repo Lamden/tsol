@@ -40,11 +40,13 @@ def generate_code(template, example):
 	return(Template(template).render(example))
 
 def generate_compilation_payload(template, example):
-	sol = '"{}"'.format(template)
+	sol = json.dumps('{}'.format(template.read()))
 	name = example['contract_name']
 	base = Template(BASE_JSON_PAYLOAD).render(sol=sol, name=name)
 	code = Template(base).render(example)
-	return(code)
+	return code
 
 def compile(template, example):
-	return compile_standard(json.loads(generate_compilation_payload(template, example), strict=False))
+	g = generate_compilation_payload(template, example)
+	j = json.loads(g)
+	return compile_standard(j)
